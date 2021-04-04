@@ -86,7 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else if (v.getId() == R.id.logoImageView || v.getId() == R.id.backgroundLayout) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            if (getCurrentFocus() != null) {
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
         }
     }
 
